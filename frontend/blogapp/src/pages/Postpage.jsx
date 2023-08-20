@@ -14,7 +14,7 @@ function Postpage() {
         return e.reducer
     })
     const dispatch=useDispatch();
-    // let base=process.env.REACT_APP_AUTH_URL
+    let base=process.env.REACT_APP_AUTH_URL
     useEffect(() => {
         if (id) {
             fetching(id);
@@ -24,7 +24,7 @@ function Postpage() {
     //  fetch post function 
     async function fetching(id) {
         try {
-            let res = await fetch(`http://54.81.55.23:3001/api/post/individual/${id}`)
+            let res = await fetch(`${base}/post/individual/${id}`)
             let json = await res.json();
             console.log(json[0])
             setPost({ ...json[0] })

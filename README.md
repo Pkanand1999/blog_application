@@ -15,7 +15,7 @@ This is a MERN (Mysql, Express, React, Node.js) stack project for a blog applica
 ### Backend
 
 The backend of the blog application is deployed on AWS and can be accessed at the following link:
-[Backend Link](http://54.81.55.23:3001/)
+[Backend Link](http://54.209.133.101/)
 
 ### Frontend
 

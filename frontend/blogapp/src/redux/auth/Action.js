@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-let base=process.env.REACT_APP_AUTH_URL
+// let base=process.env.REACT_APP_AUTH_URL
 
 export function signupUser(data,dispatch){
-  axios.post(`${base}/user/register`,data )
+  axios.post(`http://54.209.133.101:3001/api/user/register`,data )
   .then((res)=>{
     console.log(res);
       dispatch({
@@ -23,7 +23,7 @@ export function signupUser(data,dispatch){
 
 
 export function login(data,dispatch){
-  axios.post(`${base}/user/login`,data )
+  axios.post(`http://54.209.133.101:3001/api/user/login`,data )
       .then((res)=>{
           console.log(res.data)
           localStorage.setItem('blogtoken',res.data.token)
@@ -46,7 +46,7 @@ export function login(data,dispatch){
 
 export function userIsLoggedIn(authToken,dispatch){
   console.log("user is logged in")
-    fetch(`${base}/user/islogin`, {
+    fetch(`http://54.209.133.101:3001/api/user/islogin`, {
         headers: {
           'authorization': `Bearer ${authToken}`
         }
@@ -64,7 +64,7 @@ dispatch({
 
 
 export function allpost(dispatch){
-  axios.get(`${base}/post/posts`)
+  axios.get(`http://54.209.133.101:3001/api/post/posts`)
   .then(res=>{
     console.log(res.data)
     dispatch({
@@ -75,7 +75,7 @@ export function allpost(dispatch){
 }
 
 export function newpost(data,dispatch) {
-  axios.post(`${base}/post/create`,data)
+  axios.post(`http://54.209.133.101:3001/api/post/create`,data)
   .then(res=>{
     alert('post created successfully')
   })
@@ -86,7 +86,7 @@ export function newpost(data,dispatch) {
 
 
 export function commentonpost(data){
-  axios.post(`${base}/comment/create`,data)
+  axios.post(`http://54.209.133.101:3001/api/comment/create`,data)
   .then(res=>{
     console.log(res)
     alert('comment added successfully')
@@ -98,7 +98,7 @@ export function commentonpost(data){
 
 
 export function getcomment(id,dispatch){
-    axios.get(`${base}/comment/allcomment/${id}`)
+    axios.get(`http://54.209.133.101:3001/api/comment/allcomment/${id}`)
     .then(res=>{
 console.log(res.data)
 dispatch({
